@@ -23,6 +23,6 @@ resource "aws_vpc_endpoint" "s3" {
 POLICY
 
   tags = {
-    Name = "app-vpce-s3"
+    Name = var.vpc_gateway_endpoint_name != "" ? "${var.vpc_gateway_endpoint_name}-${var.service_name}" : var.service_name
   }
 }
