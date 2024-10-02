@@ -7,7 +7,6 @@ variable "vpc_gateway_endpoint_name" {
 variable "vpc_id" {
     type        = string
     description = "ID of the VPC where the cluster security group will be provisioned"
-    default     = ""
 }
 
 
