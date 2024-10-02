@@ -7,9 +7,10 @@ You only provide:
 
 ```hcl
 module "s3-endpoint-gateway" {
- source  = ?????
- vpc_id  = vpc-06f018be62beabffd
- service_name = "com.amazonaws.eu-central-1.s3"
+    source  = "mrnim94/vpc-endpoint-gateway/aws"
+    version = "0.0.1"
+    vpc_id  = vpc-06f018be62beabffd
+    service_name = "com.amazonaws.eu-central-1.s3"
 }
 ```
 
@@ -23,10 +24,11 @@ Besides, you can determine the specific routes in VPC:
 
 ```hcl
 module "s3-endpoint-gateway" {
- source  = ?????
- vpc_id  = vpc-06f018be62beabffd
- service_name = "com.amazonaws.eu-central-1.s3"
- route_table_ids = ["rtb-01a34cd8a5106b00c"]
+    source  = "mrnim94/vpc-endpoint-gateway/aws"
+    version = "0.0.1"
+    vpc_id  = vpc-06f018be62beabffd
+    service_name = "com.amazonaws.eu-central-1.s3"
+    route_table_ids = ["rtb-01a34cd8a5106b00c"]
 }
 ```
 
@@ -36,11 +38,12 @@ Default: If route\_table\_ids are not provided, the module will attach all route
 
 ```hcl
 module "s3-endpoint-gateway" {
- source  = ?????
- vpc_id  = vpc-06f018be62beabffd
- service_name = "com.amazonaws.eu-central-1.s3"
- route_table_ids = ["rtb-01a34cd8a5106b00c"]
- vpc_gateway_endpoint_name = "ahihi"
+    source  = "mrnim94/vpc-endpoint-gateway/aws"
+    version = "0.0.1"
+    vpc_id  = vpc-06f018be62beabffd
+    service_name = "com.amazonaws.eu-central-1.s3"
+    route_table_ids = ["rtb-01a34cd8a5106b00c"]
+    vpc_gateway_endpoint_name = "ahihi"
 }
 ```
 
@@ -59,10 +62,11 @@ data terraform_remote_state "network" {
  
 
 module "documentdb-mongodb" {
- source  = "github.com/mrnim94/terraform-aws-vpc-endpoint-gateway?ref=master"
- vpc_id  = data.terraform_remote_state.network.outputs.vpc_id
- service_name = "com.amazonaws.eu-central-1.s3"
- route_table_ids = ["rtb-01a34cd8a5106b00c"]
- vpc_gateway_endpoint_name = "ahihi"
+    source  = "mrnim94/vpc-endpoint-gateway/aws"
+    version = "0.0.1"
+    vpc_id  = data.terraform_remote_state.network.outputs.vpc_id
+    service_name = "com.amazonaws.eu-central-1.s3"
+    route_table_ids = ["rtb-01a34cd8a5106b00c"]
+    vpc_gateway_endpoint_name = "ahihi"
 }
 ```
