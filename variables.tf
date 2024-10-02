@@ -10,7 +10,7 @@ variable "service_name" {
     description = "(Required) The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook)`"
     default     = null
 }
- 
+
 
 variable "route_table_ids" {
     type        = list(string)
